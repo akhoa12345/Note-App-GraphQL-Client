@@ -6,6 +6,7 @@ import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import Container from '@mui/material/Container'
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 
 import router from './router'
 import './index.css'
