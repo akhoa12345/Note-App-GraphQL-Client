@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, Outlet, useParams } from 'react-router-dom'
+import { Link, Outlet, useParams, useLoaderData } from 'react-router-dom'
 import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography'
 
 
 function NoteList() {
-  const folder = { notes: [{ id: 1, content: '<p>This is new note</p>' }] }
+  const { folder } = useLoaderData()
   const { noteId } = useParams()
   const [activeNoteId, setActiveNoteId] = useState(noteId)
 
