@@ -9,20 +9,20 @@ function Note() {
   const [editorState, setEditorState] = useState(
     () => EditorState.createEmpty()
   )
-  const [rawHTML, setRawHTML] = useState(note.content)
+  const [rawHTML, setRawHTML] = useState(note?.content)
 
   useEffect(() => {
-    const blocksFromHTML = convertFromHTML(note.content)
+    const blocksFromHTML = convertFromHTML(note?.content)
     const state = ContentState.createFromBlockArray(
       blocksFromHTML.contentBlocks,
       blocksFromHTML.entityMap
     )
     setEditorState(EditorState.createWithContent(state))
-  }, [note.id])
+  }, [note?.id])
 
   useEffect(() => {
-    setRawHTML(note.content)
-  }, [note.content])
+    setRawHTML(note?.content)
+  }, [note?.content])
 
   const handleOnChange = (e) => {
     setEditorState(e)

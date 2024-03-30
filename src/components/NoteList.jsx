@@ -34,7 +34,7 @@ function NoteList() {
             </Box>
           }
         >
-          {folder.notes.map(({ id, content }) => {
+          {folder?.notes?.map(({ id, content }) => {
             return (
               <Link
                 key={id}

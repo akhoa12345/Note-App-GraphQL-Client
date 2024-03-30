@@ -28,7 +28,7 @@ function FolderList({ folders }) {
         </Box>
       }
     >
-      {folders.map(({ id, name }) => {
+      {folders?.map(({ id, name }) => {
         return (
           <Link
             key={id}
