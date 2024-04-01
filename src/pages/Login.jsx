@@ -5,6 +5,7 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 
 import { AuthContext } from '../context/AuthProvider'
+import { graphQLRequest } from '../utils/request'
 
 function Login() {
   const auth = getAuth()
@@ -15,6 +16,7 @@ function Login() {
     const provider = new GoogleAuthProvider()
 
     const result = await signInWithPopup(auth, provider)
+    await graphQLRequest({ query: [] })
     console.log('result', result)
   }
 
