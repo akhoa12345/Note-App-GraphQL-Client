@@ -7,7 +7,7 @@ export const foldersUtils = async () => {
         name
         createdAt
         author {
-          id
+          uid
           name
         }
       }

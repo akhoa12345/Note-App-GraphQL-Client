@@ -7,7 +7,7 @@ export const notesLoader = async ({ params: { folderId } }) => {
         name
         createdAt
         author {
-            id
+            uid
             name
         }
         notes {
