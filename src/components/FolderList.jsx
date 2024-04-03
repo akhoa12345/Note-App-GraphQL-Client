@@ -6,6 +6,8 @@ import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 
+import NewFolder from './NewFolder'
+
 function FolderList({ folders }) {
   const { folderId } = useParams()
   const [activeFolderId, setActiveFolderId] = useState(folderId)
@@ -21,10 +23,11 @@ function FolderList({ folders }) {
         overflow: 'auto'
       }}
       subheader={
-        <Box>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <Typography sx={{ fontWeight: 'bold', color: 'white' }}>
             Folders
           </Typography>
+          <NewFolder />
         </Box>
       }
     >
