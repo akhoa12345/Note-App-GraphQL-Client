@@ -6,9 +6,9 @@ import CardContent from '@mui/material/CardContent'
 import List from '@mui/material/List'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import { IconButton, Tooltip } from '@mui/material'
+import IconButton from '@mui/material/IconButton'
+import Tooltip from '@mui/material/Tooltip'
 import NoteAddOutlined from '@mui/icons-material/NoteAddOutlined'
-
 
 function NoteList() {
   const { folder } = useLoaderData()

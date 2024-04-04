@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react'
 import { getAuth } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
-import { CircularProgress } from '@mui/material'
+import CircularProgress from '@mui/material/CircularProgress'
 
 export const AuthContext = createContext()
 

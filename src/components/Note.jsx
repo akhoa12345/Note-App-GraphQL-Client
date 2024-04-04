@@ -1,11 +1,14 @@
-import { useEffect, useState } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
+import { useLoaderData, useLocation, useSubmit } from 'react-router-dom'
 import { ContentState, EditorState, convertFromHTML, convertToRaw } from 'draft-js'
 import { Editor } from 'react-draft-wysiwyg'
-import { draftToHtml } from 'draftjs-to-html'
+import draftToHtml from 'draftjs-to-html'
+import { debounce } from '@mui/material'
 
 function Note() {
   const { note } = useLoaderData()
+  const submit = useSubmit()
+  const location = useLocation()
   const [editorState, setEditorState] = useState(
     () => EditorState.createEmpty()
   )
@@ -19,6 +22,27 @@ function Note() {
     )
     setEditorState(EditorState.createWithContent(state))
   }, [note?.id])
+
+  useEffect(() => {
+    debouncedMemorized(rawHTML, note, location.pathname)
+  }, [rawHTML, location.pathname])
+
+  const debouncedMemorized = useMemo(() => {
+    return debounce((rawHTML, note, pathname) => {
+      if (rawHTML === note.content) return
+
+      submit(
+        {
+          ...note,
+          content: rawHTML
+        },
+        {
+          method: 'post',
+          action: pathname
+        }
+      )
+    }, 1000)
+  }, [])
 
   useEffect(() => {
     setRawHTML(note?.content)

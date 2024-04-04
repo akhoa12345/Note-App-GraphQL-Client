@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
-import { IconButton, Tooltip } from '@mui/material'
-import CreateNewFolderOutlined from '@mui/icons-material/CreateNewFolderOutlined'
+import { useNavigate, useSearchParams } from 'react-router-dom'
+import IconButton from '@mui/material/IconButton'
+import Tooltip from '@mui/material/Tooltip'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 import DialogTitle from '@mui/material/DialogTitle'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import CreateNewFolderOutlined from '@mui/icons-material/CreateNewFolderOutlined'
 
 import { addNewFolder } from '../utils/folderUtils'
 
@@ -33,7 +34,6 @@ function NewFolder() {
   }
   const handleAddNewFolder = async () => {
     const data = await addNewFolder({ name: newFolderName })
-    console.log('data: ', data)
 
     handleClose()
   }

@@ -63,3 +63,23 @@ export const addNewNote = async ({ params, request }) => {
 
   return addNote
 }
+
+export const updateNote = async ({ params, request }) => {
+  const updateNote = await request.formData()
+  const formDataObj = {}
+  updateNote.forEach((value, key) => formDataObj[key] = value)
+
+  const query = `mutation Mutation($id: String!, $content: String!) {
+    updateNote(id:$id, content: $content) {
+      id
+      content
+    }
+  }`
+
+  const data = await graphQLRequest({
+    query,
+    variables: formDataObj
+  })
+
+  return data
+}
