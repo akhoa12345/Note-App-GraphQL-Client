@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography'
 import IconButton from '@mui/material/IconButton'
 import Tooltip from '@mui/material/Tooltip'
 import NoteAddOutlined from '@mui/icons-material/NoteAddOutlined'
+import moment from 'moment'
 
 function NoteList() {
   const { folder } = useLoaderData()
@@ -64,7 +65,7 @@ function NoteList() {
             </Box>
           }
         >
-          {folder?.notes?.map(({ id, content }) => {
+          {folder?.notes?.map(({ id, content, updatedAt }) => {
             return (
               <Link
                 key={id}
@@ -80,6 +81,9 @@ function NoteList() {
                         __html: `${content.substring(0, 30) || 'Empty'}`
                       }}
                     />
+                    <Typography sx={{ fontSize: '10px' }}>
+                      {moment(updatedAt).format('dddd, MMMM Do YYYY, h:mm:ss a')}
+                    </Typography>
                   </CardContent>
                 </Card>
               </Link>
