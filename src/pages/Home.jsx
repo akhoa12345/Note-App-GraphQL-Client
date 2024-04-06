@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid'
 
 import UserMenu from '../components/UserMenu'
 import FolderList from '../components/FolderList'
+import PushNotification from '../components/PushNotification'
 
 function Home() {
   const { folders } = useLoaderData()
@@ -14,6 +15,7 @@ function Home() {
       <Typography variant='h4' sx={{ mb: '20px' }}>Note App</Typography>
       <Box sx={{ display: 'flex', justifyContent: 'right', mb: '10px' }}>
         <UserMenu />
+        <PushNotification />
       </Box>
 
       <Grid container sx={{ height: '50vh', boxShadow: '0 0 15px 0 rgb(193 193 193 / 60%)' }}>
